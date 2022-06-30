@@ -10,7 +10,7 @@ pipeline {
 
      stage('Run') {
       steps {
-        sh 'ls -la'
+        sh 'ls -la build/libs/'
         sh 'JENKINS_NODE_COOKIE=dontKillMe nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar &'
       }
     }
