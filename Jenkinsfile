@@ -11,7 +11,7 @@ pipeline {
      stage('Run') {
       steps {
         sh 'ls -la build/libs/'
-        sh 'JENKINS_NODE_COOKIE=dontKillMe java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar'
+        sh 'java -Dhudson.util.ProcessTree.disable=true -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar'
       }
     }
   }
