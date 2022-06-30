@@ -6,44 +6,23 @@ pipeline {
         sh 'gradle clean build'
       }
 
-      post {
-      failure {
-        script {
-          slackSend(
-            color: "#FF0000",
-            channel: "personal-projects",
-            message: "Ynet-News Build Status: FAILED"
-          )
-        }
-      }
-
-     success {
-        script {
-          slackSend(
-            color: "#00FF00",
-            channel: "personal-projects",
-            message: "Ynet-News Build Status: SUCCESS"
-          )
-        }
-      }
+      
     }
-    }
-
-    
-
-
 
     stage('run') {
       steps {
         sh 'gradle run &'
-      }
+      } 
+    }
+  }
 
+  post {
       failure {
         script {
           slackSend(
             color: "#FF0000",
             channel: "personal-projects",
-            message: "Ynet-News Running Status: NOT RUNNING"
+            message: "Ynet-News Status: FAILED"
           )
         }
       }
@@ -53,12 +32,9 @@ pipeline {
           slackSend(
             color: "#00FF00",
             channel: "personal-projects",
-            message: "Ynet-News Running Status: RUNNING"
+            message: "Ynet-News Status: SUCCESS"
           )
         }
       }
     }
-
-    
-  }
 }
