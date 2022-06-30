@@ -4,7 +4,7 @@ pipeline {
     stage('build and run') {
       steps {
         sh 'chmod +x gradlew'
-        sh './gradlew bootrun'
+        sh './gradlew bootrun &'
       }
 
       
