@@ -12,7 +12,7 @@ pipeline {
 
     stage('run') {
       steps {
-        sh 'gradle run &'
+        sh './gradlew run &'
       } 
     }
   }
