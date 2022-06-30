@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'chmod +x gradlew'
         sh './gradlew build'
-        bat 'java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar'
+        bat 'sudo java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar'
       }
     }
   }
