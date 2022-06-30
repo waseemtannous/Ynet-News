@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'chmod +x gradlew'
         sh './gradlew build'
-        sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar &'
+        sh 'sudo nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar &'
       }
     }
   }
