@@ -1,19 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
+    stage('build and run') {
       steps {
         sh 'chmod +x gradlew'
-        sh './gradlew clean build'
+        sh './gradlew bootrun'
       }
 
       
-    }
-
-    stage('run') {
-      steps {
-        sh './gradlew run &'
-      } 
     }
   }
 
