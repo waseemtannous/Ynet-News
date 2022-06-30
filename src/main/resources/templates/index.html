@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <div class="row border border-primary" th:each="item: ${content}">
+        <div class="row border border-primary" th:each="item: ${news}">
             <div class="d-flex flex-column align-items-center">
                 <p th:text="${item[0]}"></p>
                 <img th:src="${item[2]}" class="img-thumbnail" style="width: 30%; height: auto">
