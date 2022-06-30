@@ -1,10 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('build and run') {
+    stage('Build') {
       steps {
         sh 'chmod +x gradlew'
-        sh './gradlew jar'
+        sh './gradlew build'
+      }
+    }
+
+     stage('Run') {
+      steps {
         sh 'java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar &'
       }
     }
