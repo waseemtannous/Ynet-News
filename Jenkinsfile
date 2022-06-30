@@ -5,9 +5,8 @@ pipeline {
       steps {
         sh 'gradle clean build'
       }
-    }
 
-    post {
+      post {
       failure {
         script {
           slackSend(
@@ -28,6 +27,9 @@ pipeline {
         }
       }
     }
+    }
+
+    
 
 
 
@@ -35,9 +37,8 @@ pipeline {
       steps {
         sh 'gradle run &'
       }
-    }
 
-    failure {
+      failure {
         script {
           slackSend(
             color: "#FF0000",
@@ -56,5 +57,8 @@ pipeline {
           )
         }
       }
+    }
+
+    
   }
 }
