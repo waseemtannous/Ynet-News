@@ -10,12 +10,7 @@ pipeline {
 
      stage('Run') {
       steps {
-        // sh 'ls -la build/libs/'
-        // sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar &'
-        // sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar >> /tmp/ynet.log 2>&1&'
-        // sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar >> server.log 2>&1&'
-        sh 'echo "java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar" | at now + 1 minutes'
-        // sh './gradlew bootrun &'
+        sh 'scp -v -o StrictHostKeyChecking=no  -i /var/lib/jenkins/secrets/3.84.212.195 build/libs/Ynet-News-0.0.1-SNAPSHOT.jar root@3.84.212.195:/home/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar'
       }
     }
   }
