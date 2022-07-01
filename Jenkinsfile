@@ -11,7 +11,7 @@ pipeline {
      stage('Run') {
       steps {
         sh 'ls -la build/libs/'
-        sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar > /tmp/output.out  2>&1 &'
+        sh 'java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT-plain.jar &'
       }
     }
   }
