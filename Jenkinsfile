@@ -13,7 +13,6 @@ pipeline {
         sshagent(['jenkinsRunner']) {
           sh 'scp -o StrictHostKeyChecking=no build/libs/Ynet-News-0.0.1-SNAPSHOT.jar ubuntu@3.84.212.195:~/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar'
           sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.84.212.195 "java -jar ~/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar"'
-          sh 'sleep 30'
         }
       }
     }
