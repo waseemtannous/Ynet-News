@@ -8,9 +8,12 @@ pipeline {
       }
     }
 
-     stage('Run') {
+     stage('Deploy') {
       steps {
-        sh 'scp -v -o StrictHostKeyChecking=no  -i /var/lib/jenkins/secrets/3.84.212.195 build/libs/Ynet-News-0.0.1-SNAPSHOT.jar root@3.84.212.195:/home/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar'
+        sshagent(['jenkinsRunner']) {
+          scp '-o StrictHostKeyChecking=no build/libs/Ynet-News-0.0.1-SNAPSHOT.jar ubuntu@3.84.212.195:~/artifacts'
+          sh 'ssh -o StrictHostKeyChecking=no jenkinsRunner "cd ~/artifacts && java -jar Ynet-News-0.0.1-SNAPSHOT.jar"'
+        }
       }
     }
   }
