@@ -12,7 +12,7 @@ pipeline {
       steps {
         // sh 'ls -la build/libs/'
         // sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar &'
-        sh 'JENKINS_NODE_COOKIE=dontKillMe nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar >> /tmp/java.out 2>&1&'
+        sh 'nohup java -jar build/libs/Ynet-News-0.0.1-SNAPSHOT.jar >> /tmp/java.out 2>&1&'
         // sh './gradlew bootrun &'
       }
     }
