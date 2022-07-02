@@ -1,5 +1,7 @@
 pipeline {
+
   agent any
+
   stages {
     stage('Build') {
       steps {
@@ -12,7 +14,10 @@ pipeline {
       steps {
         sshagent(['jenkinsRunner']) {
           withEnv(['JENKINS_RUNNER_VM=ubuntu@107.21.128.115']) {
+            // transfer artifacts
             sh 'scp -o StrictHostKeyChecking=no build/libs/Ynet-News-0.0.1-SNAPSHOT.jar ${JENKINS_RUNNER_VM}:~/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar'
+            
+            // run the artifacts
             sh 'nohup ssh -o StrictHostKeyChecking=no ${JENKINS_RUNNER_VM} "java -jar ~/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar > Ynet-News.out" &'
           }
         }
