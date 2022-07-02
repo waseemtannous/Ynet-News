@@ -31,7 +31,6 @@ public class IndexController {
         try {
             NodeList news = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(this.url).getElementsByTagName("item");
 
-//            print list of objects to console
             for (int i = 0; i < news.getLength(); i++) {
                 Node item = news.item(i);
                 NodeList children = item.getChildNodes();
