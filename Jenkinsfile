@@ -12,7 +12,6 @@ pipeline {
       steps {
         sshagent(['jenkinsRunner']) {
           sh 'scp -o StrictHostKeyChecking=no build/libs/Ynet-News-0.0.1-SNAPSHOT.jar ubuntu@107.21.128.115:~/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar'
-          // sh 'ssh -o StrictHostKeyChecking=no ubuntu@107.21.128.115 "(echo y\n | nohup java -jar Ynet-News-0.0.1-SNAPSHOT.jar) &"'
           sh 'nohup ssh -o StrictHostKeyChecking=no ubuntu@107.21.128.115 "java -jar ~/artifacts/Ynet-News-0.0.1-SNAPSHOT.jar > Ynet.out" &'
         }
       }
