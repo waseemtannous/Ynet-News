@@ -45,3 +45,6 @@ To stop the app, ssh to the runner instance and run the following command:
 ```sh
 ps -ef | grep java | grep java | awk '{print $2}' | xargs kill -9
 ```
+
+## Website Demo
+![](images/websiteDemo.png)
